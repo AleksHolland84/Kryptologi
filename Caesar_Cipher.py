@@ -27,4 +27,6 @@ def caesar( plaintext, cipherkey ):
     
     
     if __name__=='__main__':
-        plaintext = input('Write your text: ')
+        plaintext = indput('Write your text: ')
+        key = int(indput("key number: ")
+        caesar(plaintext, key)
