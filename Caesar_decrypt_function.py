@@ -7,7 +7,7 @@ def caesar_decrypt(ciphertext, cipherkey):
 
     # shift each letter in the plain text by the value of 'cipherkey'
     for i in ciphertext:
-        if i not in:
+        if i not in alphabet:
             plaintext = plaintext + i
         else:
             idx = alphabet.index(i)
