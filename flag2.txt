@@ -1,1 +1,4 @@
-flag{test}
+flag2{the_one}
+
+hexadicimal - brug evt. CyberChef til at læse texten https://gchq.github.io/CyberChef/
+4d 65 65 62 6f 6f 6b 2e 63 6f 6d 20 6d 61 74 65 6d 61 74 69 6b 20 75 67 65 20 32 35 20 32 30 32 31
