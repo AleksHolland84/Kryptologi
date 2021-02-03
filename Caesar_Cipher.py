@@ -9,8 +9,8 @@ def caesar(plaintext, cipherkey ):
 
     # shift each letter in the plain text by the value of 'cipherkey'
     for i in plaintext:
-        if i == " ":
-            ciphertext = ciphertext + " "
+        if i not in alphabet:
+            ciphertext = ciphertext + i
         else:
             idx = alphabet.index(i)
 
