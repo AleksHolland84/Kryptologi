@@ -1,2 +1,2 @@
 # Kryptologi
-Forløg til undervisning i kryptologi
+Forløb til undervisning i kryptologi
