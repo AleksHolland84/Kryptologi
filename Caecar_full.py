@@ -1,14 +1,23 @@
-#!/usr/bin/env python3
 # uses the Caesar cipher to encrypt a text
 
-# Defining global variable
+# Define global variables
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 
+controller_text = ['af', 'fordi', 'kom', 'os', 'alle', 'fra', 'kommer', 'over', 'alt', 'fri', 
+    'kun', 'på', 'andre', 'få', 'kunne', 'sagde', 'at', 'gik', 'lang', 'se', 'blev', 'glad', 
+    'lidt', 'selv', 'bliver', 'godt', 'lige', 'sidste', 'bort', 'ham', 'lille', 'sig', 'da', 
+    'han', 'løb', 'sin', 'dag', 'hans', 'man', 'sine', 'de', 'har', 'mange', 'skal', 'dem', 'havde', 
+    'med', 'skulle', 'den', 'have', 'meget', 'små', 'der', 'hele', 'men', 'som', 'deres', 'hen', 'mere', 
+    'stor', 'det', 'hende', 'mig', 'store', 'dig', 'her', 'min', 'så', 'dog', 'hjem', 'mod', 'tid', 'du', 
+    'hun', 'mon', 'til', 'efter', 'hvad', 'må', 'tog', 'eller', 'hver', 'ned', 'ud', 'en', 'hvis', 'nej', 
+    'under', 'end', 'hvor', 'noget', 'var', 'er', 'igen', 'nok', 'ved', 'et', 'ikke', 'nu', 'vi', 'far', 
+    'ind', 'når', 'vil', 'fik', 'jeg', 'og', 'ville', 'fin', 'jer', 'også', 'være', 'for', 'jo', 'om', 'været', 
+    'forbi', 'kan', 'op', 'år.']
 
+
+# Functions
 def caesar(plaintext, cipherkey ):
-    """caesar() function takes two arguments: The plane text and the key to cypher it
-    It returns a cipher text"""
-
+    """ecnrypt a plane text with the Caesar cipher"""
     plaintext = plaintext.upper()
     ciphertext = ""
 
@@ -18,24 +27,19 @@ def caesar(plaintext, cipherkey ):
             ciphertext = ciphertext + i
         else:
             idx = alphabet.index(i)
-
+            
             # wrap around at top on encrypt
-            idx =  (idx + cipherkey) % len(alphabet) 
+            idx =  (idx + cipherkey) % len(alphabet)
 
-            # prevent underflow on decrpt
-            if (idx<0): idx += len(alphabet)
-
-            # apply shift to the character        
+            # apply shift to the character
             ciphertext = ciphertext + alphabet[idx]
 
-    return ciphertext 
-    
-# This is a decrypt function to the Caesar_cipher script. 
+    return(ciphertext)
+
+
 
 def caesar_decrypt(ciphertext, cipherkey):
-    """caesar_decrypt() function takes two arguments: the ciphered text and the key used to cypher it. 
-    The function returns the plane text"""
-
+    """This is a decrypt function to the Caesar_cipher script."""
     ciphertext = ciphertext.upper()
     plaintext = ""
 
@@ -47,34 +51,33 @@ def caesar_decrypt(ciphertext, cipherkey):
             idx = alphabet.index(i)
 
             # wrap around at top on encrypt
-            idx =  (idx - cipherkey) % len(alphabet) 
+            idx =  (idx - cipherkey) % len(alphabet)
 
             # prevent underflow on decrpt
             if (idx<0): idx += len(alphabet)
 
-            # apply shift to the character        
+            # apply shift to the character
             plaintext = plaintext + alphabet[idx]
+    return(plaintext)
 
-    return plaintext
- 
 
-"""
-The hacker() functions are used to brute force the cipher text. 
-Since there there isn't a lot of "compinations" it can easly be
-brute forced.
-Though, the hacker() functions will break if the ciphered text doesn't 
-use a <space> as a string-delimiter to make a list of words.
-"""
+
+
 def hacker(ciphertext):
-    controller_text = "HEJ HALLO MED SKAL HISLEN test i"
-    for _ in range(0,29):
+    """ This function take one argument which is the ciphered text. 
+    It then loops through the length of the alphabet trying to decrypt
+    the ciphered text by creating a list of words in the cyphered text 
+    and matching the words in the controller_text. If there is a match
+    it returns with a key and plain text. """
+    for _ in range(0,30):
         _plaintext = caesar_decrypt(ciphertext, _)
         cipher_word = _plaintext.split(' ')
+        controller = [wd.upper() for wd in controller_text]
         for word in cipher_word:
             if len(word) > 2:
-                if word in controller_text.upper():
-                    print("Match found!")
-                    print(f'Decrypted with key: {_ }: {_plaintext}')
+                if word in controller:
+                    print(f"Match found! - word: {word}")
+                    print(f'Decrypted with key: {_} : {_plaintext}')
                     ack = input('Is this correct? (y)es, (n)o: ')
                     if ack == 'y':
                         return _
@@ -86,28 +89,26 @@ def hacker(ciphertext):
                 pass
         print(f'Tried with key: {_} -   {_plaintext}')
 
-                
+
+        
 def hacker2(ciphertext):
-    controller_text = "HEJ HALLO MED SKAL HISLEN test i"
     for _ in range(0,29):
         controller_encrypted =  caesar(controller_text, _)
-        cipher_word = controller_encrypted.split(' ')
+        cipher_word = controller_text
         
         for word in cipher_word:
             if len(word) > 2:
                 if word in ciphertext:
                     print("Match found!")
                     _plaintext = caesar_decrypt(ciphertext, _)
-                    print(f'Decrypted with key: {_ }: {_plaintext}')
+                    print(f'Decrypted with key: {_} : {_plaintext}')
                     ack = input('Is this correct? (y)es, (n)o: ')
                     if ack == 'y':
                         return _
                     else:
                         continue
-                        
 
-# MAIN SCRIPT            
- 
+
 if __name__=='__main__':
     while True:
         try:
@@ -123,9 +124,10 @@ if __name__=='__main__':
                     key = int(input("key number: "))
                     plaintext = caesar_decrypt(ciphertext, key)
                     print(plaintext)
+                elif action == 'f':
+                    hacker(input('Past in the ciphered text: '))
             else:
                 print('You have to type e for encrypt or d for decrypt')
-        
+
         except KeyboardInterrupt:
             print('Program exited')
-
