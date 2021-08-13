@@ -20,7 +20,7 @@ def caesar(plaintext, cipherkey ):
             # apply shift to the character        
             ciphertext = ciphertext + alphabet[idx]
 
-    return(ciphertext)
+    return ciphertext
     
     
 if __name__=='__main__':
