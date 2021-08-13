@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
 # uses the Caesar cipher to encrypt a text
 
+# Defining global variable
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+
 
 def caesar(plaintext, cipherkey ):
+    """caesar() function takes two arguments: The plane text and the key to cypher it
+    It returns a cipher text"""
 
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
     plaintext = plaintext.upper()
     ciphertext = ""
 
@@ -24,12 +28,14 @@ def caesar(plaintext, cipherkey ):
             # apply shift to the character        
             ciphertext = ciphertext + alphabet[idx]
 
-    return(ciphertext)
+    return ciphertext 
     
 # This is a decrypt function to the Caesar_cipher script. 
 
 def caesar_decrypt(ciphertext, cipherkey):
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+    """caesar_decrypt() function takes two arguments: the ciphered text and the key used to cypher it. 
+    The function returns the plane text"""
+
     ciphertext = ciphertext.upper()
     plaintext = ""
 
@@ -49,7 +55,7 @@ def caesar_decrypt(ciphertext, cipherkey):
             # apply shift to the character        
             plaintext = plaintext + alphabet[idx]
 
-    return(plaintext)
+    return plaintext
  
 
 """
