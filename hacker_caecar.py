@@ -5,7 +5,7 @@ the ciphered text by creating a list of words in the cyphered text
 and matching the words in the controller_text. If there is a match
 it returns with a key and plain text.
 """
-# This function requires the caesar_decrypt function
+# This function requires the caesar_decrypt function which also requeres a global alphabet
 
 def hacker(ciphertext):
     controller_text = "HEJ HALLO MED SKAL HISLEN test i"
