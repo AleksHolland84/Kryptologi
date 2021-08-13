@@ -17,9 +17,6 @@ def caesar(plaintext, cipherkey ):
             # wrap around at top on encrypt
             idx =  (idx + cipherkey) % len(alphabet) 
 
-            # prevent underflow on decrpt
-            if (idx<0): idx += len(alphabet)
-
             # apply shift to the character        
             ciphertext = ciphertext + alphabet[idx]
 
