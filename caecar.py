@@ -88,26 +88,8 @@ def hacker(ciphertext):
             else:
                 pass
         print(f'Tried with key: {_} -   {_plaintext}')
-
-
         
-def hacker2(ciphertext):
-    for _ in range(0,29):
-        controller_encrypted =  caesar(controller_text, _)
-        cipher_word = controller_text
         
-        for word in cipher_word:
-            if len(word) > 2:
-                if word in ciphertext:
-                    print("Match found!")
-                    _plaintext = caesar_decrypt(ciphertext, _)
-                    print(f'Decrypted with key: {_} : {_plaintext}')
-                    ack = input('Is this correct? (y)es, (n)o: ')
-                    if ack == 'y':
-                        return _
-                    else:
-                        continue
-
 
 if __name__=='__main__':
     while True:
