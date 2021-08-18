@@ -7,15 +7,26 @@ it returns with a key and plain text.
 """
 # This function requires the caesar_decrypt function which also requeres a global alphabet
 
+# Define global variables
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+controller_text = list()
+
+
+# Open wordlist.txt and generate a list of words.
+with open('wordlist.txt', 'r') as wordlist:
+    for word in wordlist.readlines():
+        controller_text.append(word.strip())
+        
+
 def hacker(ciphertext):
-    controller_text = "HEJ HALLO MED SKAL HISLEN test i"
-    for _ in range(0,29):
+    for _ in range(0,30):
         _plaintext = caesar_decrypt(ciphertext, _)
         cipher_word = _plaintext.split(' ')
+        controller = [wd.upper() for wd in controller_text]
         for word in cipher_word:
-            if len(word) > 2:
-                if word in controller_text.upper():
-                    print("Match found!")
+            if len(word) > 3:
+                if word in controller:
+                    print(f"Match found! - word: {word}")
                     print(f'Decrypted with key: {_ }: {_plaintext}')
                     ack = input('Is this correct? (y)es, (n)o: ')
                     if ack == 'y':
@@ -23,7 +34,8 @@ def hacker(ciphertext):
                     else:
                         continue
                 else:
-                    pass 
+                    pass
             else:
                 pass
         print(f'Tried with key: {_} -   {_plaintext}')
+
