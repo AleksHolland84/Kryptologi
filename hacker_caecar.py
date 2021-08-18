@@ -37,8 +37,8 @@ def argparser():
     global verbose
     global cipher_file
     if len(sys.argv) < 2:
-        print('missing 1 argument > ripper.py --wordlist=<wordlist.txt>')
-            
+        print(f'missing 1 argument > {sys.argv[0]} --wordlist=<wordlist.txt>')
+        sys.exit()
     else:
         try:
             for opt in opts:
