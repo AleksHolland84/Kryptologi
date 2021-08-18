@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+# This script requires the caesar_decrypt function
 """
 This is a script ment to be run in the command line with one keyword argument, one argument and one optional flag.
 hacker_caecar.py --wordlist=<PATH TO WORDLIST> <PATH TO  CIPHERED TEXT> [opt -v]
@@ -10,10 +12,7 @@ it returns with a key and clear text.
 opt flags:
 -v             Verbose    (verbose mode)
 """
-# This script requires the caesar_decrypt function which also requeres a global alphabet
 
-#!/usr/bin/env python3
-# uses the Caesar cipher to encrypt a text
 
 
 import sys, pathlib
