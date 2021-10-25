@@ -1,7 +1,8 @@
 # uses the Caesar cipher to encrypt a text
 
 # Define global variables
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" #Danish
+#alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" #English
 
 controller_text = ['af', 'fordi', 'kom', 'os', 'alle', 'fra', 'kommer', 'over', 'alt', 'fri', 
     'kun', 'på', 'andre', 'få', 'kunne', 'sagde', 'at', 'gik', 'lang', 'se', 'blev', 'glad', 
@@ -95,7 +96,7 @@ if __name__=='__main__':
     while True:
         try:
             action = input('Encrypt(e) | decrypt(d)')
-            if action == 'e' or 'd':
+            if action == 'e' or action == 'd':
                 if action == 'e':
                     plaintext = input('Write your text: ')
                     key = int(input("key number: "))
@@ -106,8 +107,8 @@ if __name__=='__main__':
                     key = int(input("key number: "))
                     plaintext = caesar_decrypt(ciphertext, key)
                     print(plaintext)
-                elif action == 'f':
-                    hacker(input('Past in the ciphered text: '))
+            elif action == 'f':
+                hacker(input('Past in the ciphered text: '))
             else:
                 print('You have to type e for encrypt or d for decrypt')
 
