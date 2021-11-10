@@ -26,7 +26,6 @@ argv = {arg for arg in sys.argv[1:] if not arg.startswith("-")}
 
 
 # Define global variables
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
 controller_text = list()
 args = {}
 cipher_file = ''
