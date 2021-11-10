@@ -3,7 +3,8 @@
 
 def caesar(plaintext, cipherkey ):
 
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ"
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" #Danish
+    #alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" #English
     plaintext = plaintext.upper()
     ciphertext = ""
 
