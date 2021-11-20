@@ -1,8 +1,8 @@
 # This is a decrypt function to the Caesar_cipher script. 
 
 def caesar_decrypt(ciphertext, cipherkey):
-    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" #Danish
-    #alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" #English   
+    #alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" #Danish
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" #English   
     ciphertext = ciphertext.upper()
     plaintext = ""
 
