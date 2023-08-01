@@ -1,4 +1,5 @@
 # uses the Caesar cipher to encrypt a text
+import sys
 
 # Define global variables
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅ" #Danish
@@ -114,3 +115,4 @@ if __name__=='__main__':
 
         except KeyboardInterrupt:
             print('Program exited')
+            sys.exit()
