@@ -24,3 +24,4 @@ echo -n "$password" | openssl enc -aes-256-ctr -pbkdf2 -e -a -in "$1" -out encry
 
 # Clear the password variable
 unset password
+# DECRYPT WITH: openssl enc -aes-256-ctr -pbkdf2 -d -a -in encrypted.txt > cleartext.txt
